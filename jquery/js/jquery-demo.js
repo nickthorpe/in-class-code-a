@@ -16,3 +16,15 @@ var topSongs = [
     {title: 'Summertime Sadness', artist: 'Lana Del Rey & Cedric Gervais', pic: 'http://www.billboard.com/files/styles/thumbnail_140/public/artists/l/17318430.jpg', video: 'http://www.billboard.com/video/vevo/GBUV71201291'}
 ];
 
+$(function(){
+    $('.click-me').click(function(){
+        alert('Stop Clicking Me!');
+    });
+
+    $('.toggle-text-button').click(function(){
+        $('.toggle-text').fadetoggle(400);
+        var $this = $(this);
+        $this.html('Hide Text' == $this.html()
+            ? 'Show Text' : 'Hide Text');
+    });
+});
