@@ -22,9 +22,27 @@ $(function(){
     });
 
     $('.toggle-text-button').click(function(){
-        $('.toggle-text').fadetoggle(400);
+        $('.toggle-text').slidetoggle(400);
         var $this = $(this);
-        $this.html('Hide Text' == $this.html()
+        $this.html('Hide Text' == $this.html().toLowerCase()
             ? 'Show Text' : 'Hide Text');
+    });
+
+    //render top songs
+    var $template = $('.template');
+    var $container = $('.top-songs');
+    var $instance;
+
+    $.each(topSongs, function(){
+        $instance = $template.clone();
+        $instance.find('.title').html(this.title);
+        $instance.find('.artist').html(this.artist);
+        $instance.find('.pic').attr({
+            src: this.pic,
+            alt: 'picture of ' + this.artist
+        });
+        $instance.removeClass('template');
+        $container.append($instance);
+
     });
 });
