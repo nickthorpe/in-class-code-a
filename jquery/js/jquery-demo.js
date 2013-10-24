@@ -27,11 +27,24 @@ $(function(){
         $this.html('Hide Text' == $this.html().toLowerCase()
             ? 'Show Text' : 'Hide Text');
     });
+    render();
 
+    $(.'sort-artist').click(function(){
+        topSongs.sort(function(a.b){
+                returna.artist.localeCompare(b.artist);
+        });
+
+        render();    
+    });    
+});
+
+function render() {
     //render top songs
     var $template = $('.template');
     var $container = $('.top-songs');
     var $instance;
+
+    $container.empty();
 
     $.each(topSongs, function(){
         $instance = $template.clone();
@@ -43,6 +56,5 @@ $(function(){
         });
         $instance.removeClass('template');
         $container.append($instance);
-
     });
-});
+}
